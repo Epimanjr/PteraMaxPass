@@ -19,6 +19,11 @@ public class Console {
     public static Scanner sc = new Scanner(System.in);
 
     /**
+     * Allow to read and write the clipboard
+     */
+    public static ModifPressPap mpp = new ModifPressPap();
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -52,7 +57,7 @@ public class Console {
         String line = sc.nextLine();
         // Loop
         while (!line.equals("exit")) {
-            switch(line) {
+            switch (line) {
                 case "ls":
                     lp.lister();
                     break;
@@ -67,16 +72,23 @@ public class Console {
                     break;
                 default:
                     String[] lines = line.split(" ");
-                    switch(lines[0]) {
-                        case "get":
-                            if(lines.length >= 2) {
-                                System.out.println(lp.getPass(lines[1]));
-                                ModifPressPap mpp = new ModifPressPap();
-                                mpp.setClipboardContents(lp.getPass(lines[1]));
+                    switch (lines[0]) {
+                        case "getl":
+                            if (lines.length >= 2) {
+                                Maxpass mp = lp.get(lines[1]);
+                                System.out.println(mp);
+                                mpp.setClipboardContents(mp.getLogin());
+                            }
+                            break;
+                        case "getp":
+                            if (lines.length >= 2) {
+                                Maxpass mp = lp.get(lines[1]);
+                                System.out.println(mp);
+                                mpp.setClipboardContents(mp.getPassword());
                             }
                             break;
                         case "del":
-                            if(lines.length >= 2) {
+                            if (lines.length >= 2) {
                                 lp.delAndSave(lines[1]);
                             }
                             break;
