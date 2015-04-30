@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -39,5 +37,15 @@ public class Sauvegarde {
         } catch (IOException ex) {
             System.out.println("Error: IOException for file " + filename);
         }
+    }
+
+    /**
+     * Read ListPass from saved file.
+     *
+     * @param filename Name of the file
+     * @return ListPass object
+     */
+    public static ListPass readFromFile(String filename) {
+        return null;
     }
 }
