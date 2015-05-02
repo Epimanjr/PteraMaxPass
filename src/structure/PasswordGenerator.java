@@ -101,7 +101,6 @@ public class PasswordGenerator {
         }
         // Random
         int i = (int) (Math.random() * listInteger.size());
-        System.out.print(i+";");
         // Return
         return Character.toString((char)(int)listInteger.get(i));
     }
@@ -110,26 +109,26 @@ public class PasswordGenerator {
         // Just letters
         System.out.println("Generate 5 passwords with letters : ");
         System.out.println("------------------------------------");
-        for(String str : generatePasswords(5, 20, true, true, false, false)) {
+        generatePasswords(5, 20, true, true, false, false).stream().forEach((str) -> {
             System.out.println("\t"+str);
-        }
+        });
         // Just numbers
         System.out.println("Generate 5 passwords with numbers : ");
         System.out.println("------------------------------------");
-        for(String str : generatePasswords(5, 20, false, false, true, false)) {
+        generatePasswords(5, 20, false, false, true, false).stream().forEach((str) -> {
             System.out.println("\t"+str);
-        }
+        });
         // Letter + numbers
         System.out.println("Generate 5 passwords with letters and numbers : ");
         System.out.println("------------------------------------------------");
-        for(String str : generatePasswords(5, 20, true, true, true, false)) {
+        generatePasswords(5, 20, true, true, true, false).stream().forEach((str) -> {
             System.out.println("\t"+str);
-        }
+        });
         // All characters
         System.out.println("Generate 5 passwords with all characters : ");
         System.out.println("-------------------------------------------");
-        for(String str : generatePasswords(5, 20, true, true, true, true)) {
+        generatePasswords(5, 20, true, true, true, true).stream().forEach((str) -> {
             System.out.println("\t"+str);
-        }
+        });
     }
 }
