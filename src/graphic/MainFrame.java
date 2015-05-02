@@ -1,15 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * MainFrame to show all passwords.
  */
 package graphic;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.Set;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import structure.ListPass;
 import structure.Maxpass;
@@ -17,7 +12,7 @@ import structure.ModifPressPap;
 
 /**
  *
- * @author Maxime
+ * @author Maxime BLAISE
  */
 public class MainFrame extends javax.swing.JFrame {
 
@@ -132,9 +127,11 @@ public class MainFrame extends javax.swing.JFrame {
      * Initialize data.
      */
     private void initData() {
+        // Chech if file exists
         System.out.println("Try to init ListPass object from " + ListPass.filename + " ... ");
         lp = ListPass.readFromFile();
         if (lp == null) {
+            // Create new list of passwords
             System.out.print("Initialize new empty map instead ... ");
             lp = new ListPass();
             System.out.println("Done.");
